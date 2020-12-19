@@ -53,7 +53,7 @@ async def execute(sql, args, autocommit=True):
         except BaseException as e:
             if not autocommit:
                 await conn.rollback()
-            raise
+            raise e
         return affected
 
 def create_args_string(num):
